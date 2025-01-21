@@ -3,6 +3,7 @@ import './App.css';
 import NavBar from './components/NavBar'; 
 import Banner from './components/Banner';
 import Categories from './components/Categories';
+import SampleItems from './components/SampleItems'
 import Testimonials from './components/Testimonials';
 import Footer from './components/Footer'
 
@@ -17,6 +18,7 @@ function App() {
     {/* <div className="flex justify-center items-center min-h-screen bg-gray-100">
       <h1 className="text-4xl font-bold text-gray-800">Welcome to Moonlight Gems & Jewellery</h1>
     </div> */}
+    <SampleItems/>
     <Categories/>
     <Footer/>
     </div>
