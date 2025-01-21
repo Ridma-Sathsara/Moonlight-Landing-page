@@ -1,0 +1,14 @@
+/* src/index.css or src/App.css */
+
+/* Apply Roboto font globally using Tailwind's font-family class */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  font-family: 'Roboto', sans-serif; /* This will ensure the entire app uses Roboto font */
+}
+
+code {
+  font-family: 'source-code-pro', Menlo, Monaco, Consolas, 'Courier New', monospace;
+}
