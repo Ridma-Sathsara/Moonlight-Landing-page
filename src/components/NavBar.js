@@ -87,7 +87,7 @@ const NavBar = () => {
           </div>
 
           {/* Search Bar, User Icon and Cart Icon */}
-          <div className="flex items-center space-x-8">
+          <div className="flex items-center space-x-5">
             {/* Search Icon and Search Bar */}
             <div className="flex items-center space-x-2 relative">
               
