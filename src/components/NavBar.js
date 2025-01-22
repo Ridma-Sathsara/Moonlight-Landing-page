@@ -1,59 +1,125 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import moonlightLogo from "../assets/moonlightLogo.png"; // Importing the logo image
+import { FaSearch, FaUserAlt, FaShoppingCart } from "react-icons/fa"; // Importing the icons
 
 const NavBar = () => {
+  const [isScrolled, setIsScrolled] = useState(false);
+  const [isSearchOpen, setIsSearchOpen] = useState(false); // State to control search bar visibility
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 50) {
+        setIsScrolled(true);
+      } else {
+        setIsScrolled(false);
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+
+  const handleSearchClick = () => {
+    setIsSearchOpen(!isSearchOpen); // Toggle search bar visibility
+  };
+
   return (
-    <nav className="bg-transparent text-white shadow-lg fixed w-full z-10">
-      <div className="max-w-7xl mx-auto px-2 sm:px-6 lg:px-8">
-        <div className="relative flex items-center justify-between h-16">
-          {/* Mobile menu button */}
-          <div className="absolute inset-y-0 left-0 flex items-center sm:hidden">
-            <button className="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-white hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white">
-              <span className="sr-only">Open main menu</span>
-              <svg
-                className="block h-6 w-6"
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-                aria-hidden="true"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth="2"
-                  d="M4 6h16M4 12h16M4 18h16"
-                ></path>
-              </svg>
-            </button>
+    <nav className="fixed w-full z-10 shadow-md bg-transparent">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="flex items-center justify-between h-16">
+          {/* Logo */}
+          <div className="flex items-center space-x-4">
+            <img src={moonlightLogo} alt="Moonlight Gems" className="h-10" />
+            <span
+              className={`text-xl font-bold font-major-mono ${
+                isScrolled ? "text-black" : "text-white"
+              }`}
+            >
+              Moonlight Gem & Jewellery
+            </span>
           </div>
 
-          {/* Logo and Navigation links */}
-          <div className="flex-1 flex items-center justify-center sm:items-center sm:justify-center">
-            <div className="flex-shrink-0">
-              {/* Logo image */}
-              <img
-                src={moonlightLogo}
-                alt="Moonlight Gems"
-                className="h-10 mr-4"
-              />
+          {/* Desktop Navigation Links */}
+          <div className="hidden sm:flex space-x-8">
+            <a
+              href="/"
+              className={`px-3 py-2 rounded-md text-lg font-medium font-major-mono ${
+                isScrolled
+                  ? "text-black hover:text-gray-700"
+                  : "text-white hover:text-gray-300"
+              }`}
+            >
+              Home
+            </a>
+            <a
+              href="/shop"
+              className={`px-3 py-2 rounded-md text-lg font-medium font-major-mono ${
+                isScrolled
+                  ? "text-black hover:text-gray-700"
+                  : "text-white hover:text-gray-300"
+              }`}
+            >
+              Shop
+            </a>
+            <a
+              href="/about"
+              className={`px-3 py-2 rounded-md text-lg font-medium font-major-mono ${
+                isScrolled
+                  ? "text-black hover:text-gray-700"
+                  : "text-white hover:text-gray-300"
+              }`}
+            >
+              About
+            </a>
+            <a
+              href="/contact"
+              className={`px-3 py-2 rounded-md text-lg font-medium font-major-mono ${
+                isScrolled
+                  ? "text-black hover:text-gray-700"
+                  : "text-white hover:text-gray-300"
+              }`}
+            >
+              Contact
+            </a>
+          </div>
+
+          {/* Search Bar, User Icon and Cart Icon */}
+          <div className="flex items-center space-x-8">
+            {/* Search Icon and Search Bar */}
+            <div className="flex items-center space-x-2 relative">
+              
+              {isSearchOpen && (
+                <input
+                  type="text"
+                  className="px-4 py-2 border border-gray-300 rounded-md w-48 md:w-64 focus:outline-none bg-transparent"
+                  placeholder="Search..."
+                />
+              )}
+
+              <button
+                className={`text-lg ${
+                  isScrolled ? "text-black" : "text-white"
+                }`}
+                onClick={handleSearchClick} // Toggle search bar visibility
+              >
+                <FaSearch />
+              </button>
             </div>
 
-            {/* Navigation buttons */}
-            <div className="flex space-x-4">
-              <button className="text-gray-300 hover:text-white px-3 py-2 rounded-md text-lg font-medium font-major-mono">
-                Home
-              </button>
-              <button className="text-gray-300 hover:text-white px-3 py-2 rounded-md text-lg font-medium font-major-mono">
-                Shop
-              </button>
-              <button className="text-gray-300 hover:text-white px-3 py-2 rounded-md text-lg font-medium font-major-mono">
-                About
-              </button>
-              <button className="text-gray-300 hover:text-white px-3 py-2 rounded-md text-lg font-medium font-major-mono">
-                Contact
-              </button>
-            </div>
+            {/* User and Cart Icons */}
+            <button
+              className={`text-lg ${isScrolled ? "text-black" : "text-white"}`}
+            >
+              <FaUserAlt />
+            </button>
+            <button
+              className={`text-lg ${isScrolled ? "text-black" : "text-white"}`}
+            >
+              <FaShoppingCart />
+            </button>
           </div>
         </div>
       </div>

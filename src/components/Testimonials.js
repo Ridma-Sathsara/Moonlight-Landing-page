@@ -94,7 +94,7 @@ const JewelryCollage = () => {
 
       {/* Jewelry Collage Section */}
       <section className="py-16">
-        <h2 className="text-4xl  text-center mb-12 text-black">
+        <h2 className="text-4xl  text-center mb-12 text-black font-major-mono">
         Find the perfect gift this festive season
         </h2>
 
