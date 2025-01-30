@@ -5,6 +5,7 @@ import Banner from './components/Banner';
 import Categories from './components/Categories';
 import SampleItems from './components/SampleItems'
 import Testimonials from './components/Testimonials';
+import Contact from './components/Contact'
 import Footer from './components/Footer'
 
 
@@ -19,7 +20,9 @@ function App() {
       <h1 className="text-4xl font-bold text-gray-800">Welcome to Moonlight Gems & Jewellery</h1>
     </div> */}
     <SampleItems/>
+    <Contact/>
     <Categories/>
+    
     <Footer/>
     </div>
   );
