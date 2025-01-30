@@ -3,6 +3,7 @@ import b1 from "../assets/b1.jpg";
 import b2 from "../assets/b2.jpg";
 import b3 from "../assets/b3.jpg";
 import b4 from "../assets/b4.jpg";
+import logo from "../assets/moonlightLogo.png";
 
 const Banner = () => {
   // Array of images
@@ -26,7 +27,7 @@ const Banner = () => {
 
   return (
     <div
-      className={`relative bg-cover bg-center h-[60vh] md:h-[80vh] flex items-center justify-center text-center text-white transition-opacity duration-1000 ${
+      className={`relative bg-cover bg-center h-[60vh] md:h-[80vh] flex flex-col items-center justify-center text-center text-white transition-opacity duration-1000 ${
         fade ? "opacity-100" : "opacity-0"
       }`}
       style={{ backgroundImage: `url(${images[currentImageIndex]})` }}
@@ -44,10 +45,20 @@ const Banner = () => {
           Explore the finest gems and jewelry at Moonlight Gems & Jewellery.
           Find the perfect piece that speaks to you.
         </p>
-        <button className="px-6 py-2 md:px-8 md:py-3 bg-transparent text-white border border-white font-semibold rounded-lg hover:bg-white hover:text-black transition-all duration-300 transform hover:scale-105">
-  Shop Now
-</button>
 
+        {/* Shop Now Button */}
+        <button className="px-6 py-2 md:px-8 md:py-3 bg-transparent text-white border border-white font-semibold rounded-lg hover:bg-white hover:text-black transition-all duration-300 transform hover:scale-105">
+          Shop Now
+        </button>
+
+        {/* Logo Positioned Below Button */}
+        <div className="mt-6 md:mt-9 flex justify-center">
+          <img
+            src={logo}
+            alt="Moonlight Logo"
+            className="w-20 md:w-28 lg:w-36 drop-shadow-lg transition-all duration-300 hover:scale-110 hover:drop-shadow-2xl"
+          />
+        </div>
       </div>
     </div>
   );

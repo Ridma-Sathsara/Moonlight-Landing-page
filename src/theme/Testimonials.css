@@ -1,92 +1,168 @@
-/* In your Testimonials.css or main CSS file */
+/* General Styling for Grid Layout */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); /* Ensures columns fill space */
+  gap: 1.5rem; /* Add space between the images */
+  max-width: 100%;
+  margin: 0 auto;
+}
+
+/* Media Query for Tablet to Desktop (767px and up) */
+@media (max-width: 767px) {
+  .grid {
+    grid-template-columns: repeat(2, 1fr); /* Use 2 columns for tablets */
+  }
+}
+
+/* Media Query for Mobile (max-width 480px) */
+@media (max-width: 480px) {
+  .grid {
+    grid-template-columns: 1fr; /* Stack images vertically for mobile */
+  }
+
+  .grid > div img {
+    border-radius: 12px; /* Apply rounded corners to images */
+  }
+}
+
+/* Media Query for Desktop (1024px and up) - All images side by side */
+@media (min-width: 1024px) {
+  .grid {
+    display: flex; /* Use flexbox for desktop view */
+    justify-content: space-between; /* Ensure space between images */
+    max-width: 100%;
+    margin: 0 auto; /* Center the grid container */
+  }
+
+  .grid > div {
+    flex: 1; /* Each item takes equal space */
+    margin-right: 1.5rem; /* Add some space between images */
+  }
+
+  /* Remove the margin from the last image */
+  .grid > div:last-child {
+    margin-right: 0;
+  }
+
+  /* Ensure images don't stretch beyond available space */
+  .grid img {
+    width: 100%; /* Ensure images take full width of their container */
+    height: auto; /* Maintain aspect ratio */
+    object-fit: cover; /* Ensure image covers its container */
+    border-radius: 8px;
+  }
+}
+
+/* Floating Particles Container */
+.particles-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Floating Particles */
+.light {
+  position: absolute;
+  width: 0px;
+  height: 0px;
+  opacity: 0;
+  background-color: white;
+  box-shadow: 0px 0px 20px 2px #e9f1f1;
+  top: 100vh;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.x1 { animation: floatUp 4s infinite linear; transform: scale(1.0); }
+.x2 { animation: floatUp 7s infinite linear; transform: scale(1.6); left: 15%; }
+.x3 { animation: floatUp 2.5s infinite linear; transform: scale(0.5); left: 85%; }
+.x4 { animation: floatUp 4.5s infinite linear; transform: scale(1.2); left: -10%; }
+.x5 { animation: floatUp 8s infinite linear; transform: scale(2.2); left: 30%; }
+.x6 { animation: floatUp 3s infinite linear; transform: scale(0.8); left: 70%; }
+.x7 { animation: floatUp 5.3s infinite linear; transform: scale(3.2); left: 45%; }
+.x8 { animation: floatUp 4.7s infinite linear; transform: scale(1.7); left: 5%; }
+.x9 { animation: floatUp 4.1s infinite linear; transform: scale(0.9); left: 95%; }
+
+/* Particle Float Animation */
+@keyframes floatUp {
+  0% { top: 100vh; opacity: 0; }
+  25% { opacity: 1; }
+  50% { top: 50vh; opacity: 0.8; }
+  75% { opacity: 1; }
+  100% { top: -10vh; opacity: 0; }
+}
+
+/* Fade In Animation */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
 @keyframes fadeUp {
-    0% {
-      opacity: 0;
-      transform: translateY(20px);
-    }
-    100% {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
-  
-  .animate-fade-up {
-    animation: fadeUp 1s ease-out forwards;
-  }
-  
-  body {
-    margin: 0;
-    font-weight: 100;
-    background: radial-gradient(#ffffff, #ffffff);
-    animation: fadeIn 2s ease-out;
-  }
-  
-  /* Floating Particles Container */
-  .particles-container {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    overflow: hidden;
-    pointer-events: none; /* Ensures particles don't block interactions */
-    z-index: 0;
-  }
-  
-  /* Floating Particles */
-  .light {
-    position: absolute;
-    width: 0px;
-    height: 0px;
+  0% {
     opacity: 0;
-    background-color: white;
-    box-shadow: 0px 0px 20px 2px #e9f1f1;
-    top: 100vh;
-    left: 50%;
-    transform: translateX(-50%);
+    transform: translateY(20px);
   }
-  
-  .x1 { animation: floatUp 4s infinite linear; transform: scale(1.0); }
-  .x2 { animation: floatUp 7s infinite linear; transform: scale(1.6); left: 15%; }
-  .x3 { animation: floatUp 2.5s infinite linear; transform: scale(0.5); left: 85%; }
-  .x4 { animation: floatUp 4.5s infinite linear; transform: scale(1.2); left: -10%; }
-  .x5 { animation: floatUp 8s infinite linear; transform: scale(2.2); left: 30%; }
-  .x6 { animation: floatUp 3s infinite linear; transform: scale(0.8); left: 70%; }
-  .x7 { animation: floatUp 5.3s infinite linear; transform: scale(3.2); left: 45%; }
-  .x8 { animation: floatUp 4.7s infinite linear; transform: scale(1.7); left: 5%; }
-  .x9 { animation: floatUp 4.1s infinite linear; transform: scale(0.9); left: 95%; }
-  
-  /* Fade In Animation */
-  @keyframes fadeIn {
-    from { opacity: 0; }
-    to { opacity: 1; }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
   }
-  
-  /* Particle Float Animation */
-  @keyframes floatUp {
-    0% { top: 100vh; opacity: 0; }
-    25% { opacity: 1; }
-    50% { top: 50vh; opacity: 0.8; }
-    75% { opacity: 1; }
-    100% { top: -10vh; opacity: 0; }
-  }
-  
-  /* Section Styling */
-  section {
-    position: relative;
-    z-index: 1;
-    background: transparent;
-  }
-  
-  /* h2 {
-    font-family: 'Poppins', sans-serif; 
-    font-size: 2.5rem;
-    color: white;
-    text-shadow: 0px 4px 8px rgba(0, 0, 0, 0.6);
-} */
+}
 
+.animate-fade-up {
+  animation: fadeUp 1s ease-out forwards;
+}
 
+/* Section Styling */
+section {
+  position: relative;
+  z-index: 1;
+  background: transparent;
+}
 
-/* Import Google Font */
-/* Import Poppins font from Google Fonts */
-  
+/* General Image Styling */
+img {
+  max-width: 100%; /* Ensures images scale properly */
+  height: auto;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+/* Add smooth transition effect when images appear */
+img.animate-fade-up {
+  animation: fadeUp 1s ease-out forwards;
+}
+
+/* Custom Image Styling */
+.relative {
+  position: relative;
+}
+
+/* Additional Styling for Layout and Text */
+h2 {
+  font-family: 'Poppins', sans-serif;
+  font-size: 2.5rem;
+  text-align: center;
+  color: black;
+  margin-bottom: 2rem;
+  font-weight: bold;
+  text-shadow: 0px 4px 8px rgba(0, 0, 0, 0.6);
+}
+
+/* Ensure the grid images don't stretch beyond available width */
+.grid > div {
+  width: 100%;
+}
+
+/* Floating Particles Styling */
+body {
+  margin: 0;
+  font-weight: 100;
+  background: radial-gradient(#ffffff, #ffffff);
+  animation: fadeIn 2s ease-out;
+}
