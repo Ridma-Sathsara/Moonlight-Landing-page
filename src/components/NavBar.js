@@ -18,7 +18,7 @@ const NavBar = () => {
 
   const handleNavigate = (path) => {
     navigate(path); 
-    setIsMobileMenuOpen(false); // Close the mobile menu on navigation
+    setIsMobileMenuOpen(false); 
   };
 
   useEffect(() => {
