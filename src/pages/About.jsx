@@ -45,15 +45,16 @@ export function About() {
               Our Heritage
             </h2>
             <p className="text-gray-700 leading-relaxed mb-4">
-              Founded in 1990, Moonlight Gem & Jewelry has been a beacon of
-              excellence in the world of fine jewelry. Our journey began with a
-              simple yet powerful vision: to create pieces that transcend time
-              and tell unique stories.
+              Moonlight Gems and Jewellery, established in 1990, has been a
+              beacon of excellence in the world of fine jewelry. Located at
+              Jayanthi Street, next to the Mermaid Hotel and Club in Kalutara,
+              Sri Lanka, they offer a range of bespoke jewelry crafted to your
+              designs, as well as ready-made pieces featuring genuine gems with
+              full certification.
             </p>
             <p className="text-gray-700 leading-relaxed">
-              Today, we continue to uphold the traditions of exceptional
-              craftsmanship while embracing modern innovation, ensuring each
-              piece we create is a masterpiece in its own right.
+               For more information or to
+              contact them directly, you can visit their Facebook page.
             </p>
           </div>
           <img
@@ -78,7 +79,9 @@ export function About() {
             loading="lazy"
           />
           <div className="md:order-1">
-            <h2 className="text-3xl font-serif font-semibold mb-6">Our Craft</h2>
+            <h2 className="text-3xl font-serif font-semibold mb-6">
+              Our Craft
+            </h2>
             <p className="text-gray-700 leading-relaxed mb-4">
               Every piece of jewelry at Moonlight is a testament to our
               dedication to excellence. Our master craftsmen combine traditional
@@ -117,5 +120,5 @@ export function About() {
       </div>
     </div>
   );
-};
+}
 export default About;

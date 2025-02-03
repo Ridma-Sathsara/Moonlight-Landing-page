@@ -50,7 +50,7 @@ const Contact = () => {
               <div>
                 <h3 className="font-semibold text-lg text-gray-800">Visit Our Store</h3>
                 <p className="text-gray-600">
-                  123 Luxury Lane, New York, NY 10001, United States
+                 Next to hotel Mermaid,Jayanthi Mawatha,Maha Waskaduwa, Waskaduwa
                 </p>
               </div>
             </div>
@@ -60,7 +60,7 @@ const Contact = () => {
               <Mail className="w-8 h-8 text-gray-600" />
               <div>
                 <h3 className="font-semibold text-lg text-gray-800">Email Us</h3>
-                <p className="text-gray-600">contact@moonlightjewelry.com</p>
+                <p className="text-gray-600">moonlightgj@gmail.com</p>
               </div>
             </div>
 
@@ -69,7 +69,7 @@ const Contact = () => {
               <Phone className="w-8 h-8 text-gray-600" />
               <div>
                 <h3 className="font-semibold text-lg text-gray-800">Call Us</h3>
-                <p className="text-gray-600">+1 (555) 123-4567</p>
+                <p className="text-gray-600">+94 71 64 65 451</p>
               </div>
             </div>
           </div>
@@ -80,15 +80,15 @@ const Contact = () => {
             <div className="space-y-2">
               <div className="flex justify-between">
                 <span className="text-gray-600">Mon-Fri</span>
-                <span>10:00 AM - 7:00 PM</span>
+                <span>9:00 AM - 7:00 PM</span>
               </div>
               <div className="flex justify-between">
                 <span className="text-gray-600">Saturday</span>
-                <span>11:00 AM - 6:00 PM</span>
+                <span>9:00 AM - 6:00 PM</span>
               </div>
               <div className="flex justify-between">
                 <span className="text-gray-600">Sunday</span>
-                <span>Closed</span>
+                <span>9:00 AM - 6:00 PM</span>
               </div>
             </div>
           </div>
