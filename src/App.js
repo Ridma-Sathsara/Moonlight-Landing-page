@@ -1,30 +1,19 @@
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import "./App.css";
+import NavBar from "./components/NavBar";
 
-import './App.css';
-import NavBar from './components/NavBar'; 
-import Banner from './components/Banner';
-import Categories from './components/Categories';
-import SampleItems from './components/SampleItems'
-import Testimonials from './components/Testimonials';
-import Contact from './components/Contact'
-import Footer from './components/Footer'
-
+import Navbarroutes from "./routes/navbarroutes";
 
 function App() {
   return (
-    <div>
-      <NavBar />
-      <Banner /> 
-      
-      <Testimonials/>
-    {/* <div className="flex justify-center items-center min-h-screen bg-gray-100">
-      <h1 className="text-4xl font-bold text-gray-800">Welcome to Moonlight Gems & Jewellery</h1>
-    </div> */}
-    <SampleItems/>
-    <Contact/>
-    <Categories/>
-    
-    <Footer/>
-    </div>
+    <Router>
+      <div>
+        <NavBar />
+        <Routes>
+          <Route path="/*" element={<Navbarroutes />} />
+        </Routes>
+      </div>
+    </Router>
   );
 }
 

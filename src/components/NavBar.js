@@ -1,10 +1,25 @@
 import React, { useState, useEffect } from "react";
-import moonlightLogo from "../assets/moonlightLogo.png"; // Importing the logo image
-import { FaSearch, FaUserAlt, FaShoppingCart } from "react-icons/fa"; // Importing the icons
+import moonlightLogo from "../assets/moonlightLogo.png"; 
+import { FaSearch, FaUserAlt, FaShoppingCart, FaBars, FaTimes } from "react-icons/fa"; 
+import { useNavigate } from "react-router-dom"; 
 
 const NavBar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
-  const [isSearchOpen, setIsSearchOpen] = useState(false); // State to control search bar visibility
+  const [isSearchOpen, setIsSearchOpen] = useState(false); 
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false); 
+  const navigate = useNavigate(); 
+
+  const menuItems = [
+    { path: "/", label: 'Home' }, 
+    { path: "/shop", label: 'Shop' },
+    { path: "/about", label: 'About' },
+    { path: "/contact", label: 'Contact' },
+  ];
+
+  const handleNavigate = (path) => {
+    navigate(path); 
+    setIsMobileMenuOpen(false); // Close the mobile menu on navigation
+  };
 
   useEffect(() => {
     const handleScroll = () => {
@@ -23,20 +38,26 @@ const NavBar = () => {
   }, []);
 
   const handleSearchClick = () => {
-    setIsSearchOpen(!isSearchOpen); // Toggle search bar visibility
+    setIsSearchOpen(!isSearchOpen); 
+  };
+
+  const handleMobileMenuToggle = () => {
+    setIsMobileMenuOpen(!isMobileMenuOpen);
   };
 
   return (
-    <nav className="fixed w-full z-10 shadow-md bg-transparent">
+    <nav
+      className={`fixed w-full z-10 transition-all duration-300 ease-in-out ${
+        isScrolled ? "bg-[rgba(255,255,255,0.8)] shadow-md" : "bg-[rgba(255,255,255,0.4)]"
+      }`}
+    >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
           <div className="flex items-center space-x-4">
             <img src={moonlightLogo} alt="Moonlight Gems" className="h-10" />
             <span
-              className={`text-xl font-bold font-major-mono ${
-                isScrolled ? "text-black" : "text-white"
-              }`}
+              className={`text-xl font-bold font-major-mono transition-all duration-300 ease-in-out text-black`}
             >
               Moonlight Gem & Jewellery
             </span>
@@ -44,53 +65,31 @@ const NavBar = () => {
 
           {/* Desktop Navigation Links */}
           <div className="hidden sm:flex space-x-8">
-            <a
-              href="/"
-              className={`px-3 py-2 rounded-md text-lg font-medium font-major-mono ${
-                isScrolled
-                  ? "text-black hover:text-gray-700"
-                  : "text-white hover:text-gray-300"
-              }`}
-            >
-              Home
-            </a>
-            <a
-              href="/shop"
-              className={`px-3 py-2 rounded-md text-lg font-medium font-major-mono ${
-                isScrolled
-                  ? "text-black hover:text-gray-700"
-                  : "text-white hover:text-gray-300"
-              }`}
-            >
-              Shop
-            </a>
-            <a
-              href="/about"
-              className={`px-3 py-2 rounded-md text-lg font-medium font-major-mono ${
-                isScrolled
-                  ? "text-black hover:text-gray-700"
-                  : "text-white hover:text-gray-300"
-              }`}
-            >
-              About
-            </a>
-            <a
-              href="/contact"
-              className={`px-3 py-2 rounded-md text-lg font-medium font-major-mono ${
-                isScrolled
-                  ? "text-black hover:text-gray-700"
-                  : "text-white hover:text-gray-300"
-              }`}
-            >
-              Contact
-            </a>
+            {menuItems.map((item) => {
+              return (
+                <button
+                  key={item.path}
+                  onClick={() => handleNavigate(item.path)}
+                  className={`px-3 py-2 rounded-md text-lg font-medium font-major-mono transition-all duration-300 ease-in-out text-black hover:text-gray-700`}
+                >
+                  {item.label}
+                </button>
+              );
+            })}
           </div>
 
-          {/* Search Bar, User Icon and Cart Icon */}
+          {/* Mobile Menu Toggle (Hamburger Icon) */}
+          <button
+            onClick={handleMobileMenuToggle}
+            className={`sm:hidden text-lg transition-all duration-300 ease-in-out text-black`}
+          >
+            {isMobileMenuOpen ? <FaTimes /> : <FaBars />}
+          </button>
+
+          {/* Search Bar, User Icon, and Cart Icon */}
           <div className="flex items-center space-x-5">
-            {/* Search Icon and Search Bar */}
-            <div className="flex items-center space-x-2 relative">
-              
+            {/* Search Icon */}
+            <div className="relative">
               {isSearchOpen && (
                 <input
                   type="text"
@@ -100,29 +99,44 @@ const NavBar = () => {
               )}
 
               <button
-                className={`text-lg ${
-                  isScrolled ? "text-black" : "text-white"
-                }`}
-                onClick={handleSearchClick} // Toggle search bar visibility
+                className={`text-lg transition-all duration-300 ease-in-out text-black`}
+                onClick={handleSearchClick}
               >
                 <FaSearch />
               </button>
             </div>
 
             {/* User and Cart Icons */}
-            <button
-              className={`text-lg ${isScrolled ? "text-black" : "text-white"}`}
-            >
-              <FaUserAlt />
-            </button>
-            <button
-              className={`text-lg ${isScrolled ? "text-black" : "text-white"}`}
-            >
-              <FaShoppingCart />
-            </button>
+            <div className="hidden sm:flex items-center space-x-3">
+              <button
+                className={`text-lg transition-all duration-300 ease-in-out text-black`}
+              >
+                <FaUserAlt />
+              </button>
+              <button
+                className={`text-lg transition-all duration-300 ease-in-out text-black`}
+              >
+                <FaShoppingCart />
+              </button>
+            </div>
           </div>
         </div>
       </div>
+
+      {/* Mobile Menu (dropdown) */}
+      {isMobileMenuOpen && (
+        <div className="sm:hidden flex flex-col items-center space-y-4 bg-white py-4">
+          {menuItems.map((item) => (
+            <button
+              key={item.path}
+              onClick={() => handleNavigate(item.path)}
+              className="text-lg font-medium text-black py-2 px-4 hover:bg-gray-100"
+            >
+              {item.label}
+            </button>
+          ))}
+        </div>
+      )}
     </nav>
   );
 };

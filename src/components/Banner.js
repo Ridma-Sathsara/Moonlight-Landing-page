@@ -11,37 +11,33 @@ const Banner = () => {
 
   // State to hold the current image index and fade transition class
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
-  const [fade, setFade] = useState(false);
 
   useEffect(() => {
     const interval = setInterval(() => {
-      setFade(false);
-      setTimeout(() => {
-        setCurrentImageIndex((prevIndex) => (prevIndex + 1) % images.length);
-        setFade(true);
-      }, 500);
+      setCurrentImageIndex((prevIndex) => (prevIndex + 1) % images.length);
     }, 5000);
 
     return () => clearInterval(interval);
-  }, [images.length]); // Add images.length as a dependency
+  }, [images.length]);
 
   return (
     <div
-      className={`relative bg-cover bg-center h-[60vh] md:h-[80vh] flex flex-col items-center justify-center text-center text-white transition-opacity duration-1000 ${
-        fade ? "opacity-100" : "opacity-0"
-      }`}
-      style={{ backgroundImage: `url(${images[currentImageIndex]})` }}
+      className="relative bg-cover bg-center h-[60vh] md:h-[80vh] flex flex-col items-center justify-center text-center text-white"
+      style={{
+        backgroundImage: `url(${images[currentImageIndex]})`,
+        transition: "background-image 1s ease-in-out", // Smooth transition for background image
+      }}
     >
       {/* Gradient overlay for better contrast */}
       <div className="absolute inset-0 bg-gradient-to-t from-black via-black to-transparent opacity-50"></div>
 
       {/* Banner Content */}
       <div className="relative z-10 px-6 sm:px-12 text-center">
-        <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight mb-4 leading-tight font-petit-formal-script">
+        <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight mb-4 leading-tight font-petit-formal-script transition-opacity duration-1000 opacity-100">
           Discover Timeless Elegance
         </h1>
 
-        <p className="text-sm sm:text-base md:text-lg lg:text-xl mb-6 max-w-xl mx-auto">
+        <p className="text-sm sm:text-base md:text-lg lg:text-xl mb-6 max-w-xl mx-auto opacity-100 transition-opacity duration-1000">
           Explore the finest gems and jewelry at Moonlight Gems & Jewellery.
           Find the perfect piece that speaks to you.
         </p>
