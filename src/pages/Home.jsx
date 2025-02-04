@@ -3,7 +3,7 @@ import Categories from "../components/Categories";
 import SampleItems from "../components/SampleItems";
 import Testimonials from "../components/Testimonials";
 import Contact from "../components/Contact";
-import Footer from "../components/Footer";
+// import Footer from "../components/Footer";
 
 function Home() {
   return (
@@ -13,7 +13,7 @@ function Home() {
       <SampleItems />
       <Contact />
       <Categories />
-      <Footer />
+      {/* <Footer /> */}
     </div>
   );
 }
