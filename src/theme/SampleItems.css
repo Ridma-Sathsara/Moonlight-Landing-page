@@ -1,3 +1,6 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+
+
 .sample-items-container {
   display: flex;
   flex-direction: column;
@@ -56,6 +59,7 @@
   color: #1f2937; 
   margin: 0.5rem 0;
   text-transform: capitalize; 
+  font-family: 'Poppins', sans-serif; 
 }
 
 .item-price {

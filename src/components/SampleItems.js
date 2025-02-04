@@ -49,7 +49,7 @@ const SampleItems = () => {
 
   return (
     <div className="sample-items-container">
-      <h2 className="text-center mb-12 text-4xl font-major-mono text-gray-800">
+      <h2 className="text-center mb-12 text-4xl font-poppins text-gray-800">
         Our Featured Jewelry Collection
       </h2>
       <div className="items-grid">

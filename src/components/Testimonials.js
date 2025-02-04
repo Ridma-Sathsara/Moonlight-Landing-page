@@ -17,14 +17,12 @@ const JewelryCollage = () => {
     image6: false,
   });
 
-  
   const image1Ref = useRef(null);
   const image2Ref = useRef(null);
   const image3Ref = useRef(null);
   const image4Ref = useRef(null);
   const image5Ref = useRef(null);
   const image6Ref = useRef(null);
-
 
   const imageRefs = useMemo(
     () => ({
@@ -35,14 +33,14 @@ const JewelryCollage = () => {
       image5Ref,
       image6Ref,
     }),
-    [] 
+    []
   );
 
   useEffect(() => {
     const observerOptions = {
       root: null,
       rootMargin: "0px",
-      threshold: 0.2, 
+      threshold: 0.2,
     };
 
     const observerCallback = (entries) => {
@@ -63,7 +61,10 @@ const JewelryCollage = () => {
       });
     };
 
-    const observer = new IntersectionObserver(observerCallback, observerOptions);
+    const observer = new IntersectionObserver(
+      observerCallback,
+      observerOptions
+    );
 
     // Start observing each image reference
     Object.values(imageRefs).forEach((imageRef) => {
@@ -93,57 +94,49 @@ const JewelryCollage = () => {
       </div>
 
       {/* Jewelry Collage Section */}
-      <section className="py-16">
-        <h2 className="text-4xl  text-center mb-12 text-black font-major-mono">
-        Find the perfect gift this festive season
+      <section className="jewelry-collage">
+        <h2 className="text-center text-4xl font-poppins mb-8 text-gray-800">
+          Find the perfect gift this festive season
         </h2>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 max-w-7xl mx-auto px-6">
-          <div
-            className="relative"
-            ref={imageRefs.image1Ref}
-            data-ref="image1"
-          >
+        <div className="grid">
+          <div className="relative" ref={imageRefs.image1Ref} data-ref="image1">
             <img
               src={image1}
               alt="Jewelry 1"
-              className={`w-full h-96 object-cover rounded-lg shadow-xl ${isVisible.image1 ? "animate-fade-up" : ""}`}
+              className={`jewelry-image ${
+                isVisible.image1 ? "animate-fade-up" : ""
+              }`}
             />
           </div>
 
-          <div
-            className="relative"
-            ref={imageRefs.image2Ref}
-            data-ref="image2"
-          >
+          <div className="relative" ref={imageRefs.image2Ref} data-ref="image2">
             <img
               src={image2}
               alt="Jewelry 2"
-              className={`w-full h-72 object-cover rounded-lg shadow-xl ${isVisible.image2 ? "animate-fade-up" : ""}`}
+              className={`jewelry-image ${
+                isVisible.image2 ? "animate-fade-up" : ""
+              }`}
             />
           </div>
 
-          <div
-            className="relative"
-            ref={imageRefs.image3Ref}
-            data-ref="image3"
-          >
+          <div className="relative" ref={imageRefs.image3Ref} data-ref="image3">
             <img
               src={image3}
               alt="Jewelry 3"
-              className={`w-full h-80 object-cover rounded-lg shadow-xl ${isVisible.image3 ? "animate-fade-up" : ""}`}
+              className={`jewelry-image ${
+                isVisible.image3 ? "animate-fade-up" : ""
+              }`}
             />
           </div>
 
-          <div
-            className="relative"
-            ref={imageRefs.image4Ref}
-            data-ref="image4"
-          >
+          <div className="relative" ref={imageRefs.image4Ref} data-ref="image4">
             <img
               src={image4}
               alt="Jewelry 4"
-              className={`w-full h-60 object-cover rounded-lg shadow-xl ${isVisible.image4 ? "animate-fade-up" : ""}`}
+              className={`jewelry-image ${
+                isVisible.image4 ? "animate-fade-up" : ""
+              }`}
             />
           </div>
 
@@ -155,19 +148,19 @@ const JewelryCollage = () => {
             <img
               src={image5}
               alt="Jewelry 5"
-              className={`w-full h-96 object-cover rounded-lg shadow-xl ${isVisible.image5 ? "animate-fade-up" : ""}`}
+              className={`jewelry-image ${
+                isVisible.image5 ? "animate-fade-up" : ""
+              }`}
             />
           </div>
 
-          <div
-            className="relative"
-            ref={imageRefs.image6Ref}
-            data-ref="image6"
-          >
+          <div className="relative" ref={imageRefs.image6Ref} data-ref="image6">
             <img
               src={image6}
               alt="Jewelry 6"
-              className={`w-full h-72 object-cover rounded-lg shadow-xl ${isVisible.image6 ? "animate-fade-up" : ""}`}
+              className={`jewelry-image ${
+                isVisible.image6 ? "animate-fade-up" : ""
+              }`}
             />
           </div>
         </div>

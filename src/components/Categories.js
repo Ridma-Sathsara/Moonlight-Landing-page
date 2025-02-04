@@ -4,11 +4,13 @@ import "../theme/Categories.css";
 const Categories = () => {
   
   const categories = [
-    { name: "Gems from Renewable Energy", icon: "fas fa-gem" },
-    { name: "Full Transparency of Origin", icon: "fas fa-search" },
-    { name: "Only Recycled 18k and 14k Gold", icon: "fas fa-ring" },
-    { name: "Designed in Sri Lanka", icon: "fas fa-map-marker-alt" },
+    { name: "Ethically Sourced Gems", icon: "fas fa-gem" },
+    { name: "Certified Gemstones", icon: "fas fa-certificate" },
+    { name: "Unique Jewelry Designs ", icon: "fas fa-ring" },
+    { name: "Handcrafted in Sri Lanka", icon: "fas fa-map-marker-alt" },
   ];
+  
+  
 
   return (
     <div className="categories-container">

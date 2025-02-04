@@ -1,7 +1,7 @@
 /* General Styling for Grid Layout */
 .grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); /* Ensures columns fill space */
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); /* Ensure images are consistently sized */
   gap: 1.5rem; /* Add space between the images */
   max-width: 100%;
   margin: 0 auto;
@@ -18,10 +18,6 @@
 @media (max-width: 480px) {
   .grid {
     grid-template-columns: 1fr; /* Stack images vertically for mobile */
-  }
-
-  .grid > div img {
-    border-radius: 12px; /* Apply rounded corners to images */
   }
 }
 
@@ -47,8 +43,8 @@
   /* Ensure images don't stretch beyond available space */
   .grid img {
     width: 100%; /* Ensure images take full width of their container */
-    height: auto; /* Maintain aspect ratio */
-    object-fit: cover; /* Ensure image covers its container */
+    height: 200px; /* Keep all images at the same fixed height */
+    object-fit: cover; /* Maintain aspect ratio */
     border-radius: 8px;
   }
 }
@@ -90,79 +86,41 @@
 
 /* Particle Float Animation */
 @keyframes floatUp {
-  0% { top: 100vh; opacity: 0; }
-  25% { opacity: 1; }
-  50% { top: 50vh; opacity: 0.8; }
-  75% { opacity: 1; }
-  100% { top: -10vh; opacity: 0; }
+  0% { top: 100vh; opacity: 0.7; }
+  100% { top: -10%; opacity: 0.2; }
 }
 
-/* Fade In Animation */
-@keyframes fadeIn {
-  from { opacity: 0; }
-  to { opacity: 1; }
-}
-
+/* Image Animation */
 @keyframes fadeUp {
-  0% {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  100% {
-    opacity: 1;
-    transform: translateY(0);
-  }
+  0% { opacity: 0; transform: translateY(50px); }
+  100% { opacity: 1; transform: translateY(0); }
 }
 
+/* Apply animation when images are visible */
 .animate-fade-up {
   animation: fadeUp 1s ease-out forwards;
 }
 
-/* Section Styling */
-section {
-  position: relative;
-  z-index: 1;
-  background: transparent;
-}
-
-/* General Image Styling */
-img {
-  max-width: 100%; /* Ensures images scale properly */
-  height: auto;
-  object-fit: cover;
-  border-radius: 8px;
-}
-
-/* Add smooth transition effect when images appear */
-img.animate-fade-up {
-  animation: fadeUp 1s ease-out forwards;
-}
-
-/* Custom Image Styling */
-.relative {
+/* Style for Jewelry Section */
+.jewelry-collage {
+  padding: 3rem 1rem;
+  background-color: #f8f8f8;
   position: relative;
 }
 
-/* Additional Styling for Layout and Text */
-h2 {
-  font-family: 'Poppins', sans-serif;
-  font-size: 2.5rem;
+.section-title {
   text-align: center;
-  color: black;
-  margin-bottom: 2rem;
+  font-size: 2.25rem;
   font-weight: bold;
-  text-shadow: 0px 4px 8px rgba(0, 0, 0, 0.6);
+  margin-bottom: 2rem;
+  color: #333;
 }
 
-/* Ensure the grid images don't stretch beyond available width */
-.grid > div {
+/* Image Styling */
+.jewelry-image {
   width: 100%;
-}
-
-/* Floating Particles Styling */
-body {
-  margin: 0;
-  font-weight: 100;
-  background: radial-gradient(#ffffff, #ffffff);
-  animation: fadeIn 2s ease-out;
+  height: 200px; /* Fixed height for consistency */
+  object-fit: cover; /* Ensure all images cover their container */
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }

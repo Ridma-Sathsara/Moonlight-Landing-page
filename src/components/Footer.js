@@ -13,13 +13,19 @@ const Footer = () => {
           <img src={logoImage} alt="Moonlight Gems Logo" />
         </div>
 
+        {/* Moonlight Gems Section */}
         <div className="footer-section">
-          {/* Moonlight Gems Section */}
           <h3>Moonlight Gem & Jewellery</h3>
           <p>
             Discover elegant and timeless jewelry for every occasion. Find the
             perfect gem with us!
           </p>
+        </div>
+
+        {/* Address Section */}
+        <div className="footer-section address-section">
+          <h3>Our Address</h3>
+          <p>Next to hotel Mermaid, Jayanthi Mawatha, Maha Waskaduwa, Waskaduwa.</p>
         </div>
 
         {/* Quick Links Section */}

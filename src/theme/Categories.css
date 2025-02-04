@@ -1,9 +1,13 @@
+/* Apply Poppins font */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap');
+
 .categories-container {
   background-color: rgb(255, 255, 255);
   padding: 20px;
+  font-family: 'Poppins', sans-serif; /* Apply Poppins font */
 }
 
-
+/* Categories title */
 .categories-title {
   font-size: 2rem;
   font-weight: bold;
@@ -11,29 +15,73 @@
   margin-bottom: 20px;
 }
 
-
+/* Collage container for items */
 .collage-container {
   display: flex;
-  justify-content: space-around; 
+  justify-content: space-around;
   align-items: center;
   flex-wrap: wrap;
+  gap: 1rem; /* Add space between items */
 }
 
-
+/* Each collage item */
 .collage-item {
   text-align: center;
   padding: 10px;
   max-width: 200px;
+  width: 100%; /* Ensure it takes full width on smaller screens */
+  box-sizing: border-box;
 }
 
+/* Icon styles */
 .icon {
-  font-size: 2rem; 
+  font-size: 2rem;
   color: #333;
   margin-bottom: 10px;
 }
 
+/* Category text styling */
 .category-text {
   font-size: 1.1rem;
   font-weight: 500;
   color: #555;
+  text-align: center;
+}
+
+/* Responsive styling for mobile view */
+@media (max-width: 768px) {
+  .collage-container {
+    justify-content: center; /* Center items on smaller screens */
+  }
+
+  .collage-item {
+    max-width: 150px; /* Make items smaller */
+    font-size: 1rem; /* Reduce text size */
+  }
+
+  .icon {
+    font-size: 1.5rem; /* Reduce icon size */
+  }
+
+  .category-text {
+    font-size: 1rem; /* Reduce text size */
+  }
+}
+
+@media (max-width: 480px) {
+  .categories-title {
+    font-size: 1.5rem; /* Smaller title font on very small screens */
+  }
+
+  .collage-item {
+    max-width: 120px; /* Further reduce item size */
+  }
+
+  .icon {
+    font-size: 1.3rem; /* Adjust icon size */
+  }
+
+  .category-text {
+    font-size: 0.9rem; /* Adjust text size */
+  }
 }

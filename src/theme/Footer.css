@@ -1,123 +1,146 @@
 /* Footer Container */
 .footer {
-    background-color: #000; /* Black background */
-    color: #fff; /* White text */
-    padding: 2rem 1rem;
-    position: relative;
-  }
-  
-  /* Logo Section */
-.footer-logo {
-  grid-column: 1 / 2; /* Position the logo in the first column */
-  align-self: center;
+  background-color: #000; /* Black background */
+  color: #fff; /* White text */
+  padding: 2rem 1rem;
+  position: relative;
 }
 
+/* Footer Content Grid */
+.footer-content {
+  display: grid;
+  grid-template-columns: auto 1fr 1fr 1fr; 
+  gap: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  align-items: center; 
+  justify-items: center;
+}
+
+.footer-logo {
+  grid-column: 1 / 2; /* Keep logo in the first column */
+  align-self: center; /* Vertically center the logo */
+}
+
+/* Logo Section */
 .footer-logo img {
   width: 150px; /* Adjust the size of the logo */
   max-width: 100%;
 }
 
- /* Footer Content Grid */
-.footer-content {
-  display: grid;
-  grid-template-columns: auto 1fr 1fr 1fr; /* First column for the logo */
-  gap: 2rem;
-  max-width: 1200px;
-  margin: 0 auto;
-  align-items: center; /* Vertically align the content */
+/* Footer Sections */
+.footer-section {
+  font-size: 1rem;
 }
 
-  
-  .footer-section {
-    font-size: 1rem;
-  }
-  
-  .footer-section h3 {
-    font-size: 1.5rem;
-    margin-bottom: 1rem;
-  }
-  
-  .footer-section p {
-    line-height: 1.6;
-  }
-  
-  .footer-section ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-  }
-  
-  .footer-section ul li {
-    margin-bottom: 0.5rem;
-  }
-  
-  .footer-section ul li a {
-    color: #fff;
-    text-decoration: none;
-    transition: color 0.3s ease;
-  }
-  
-  .footer-section ul li a:hover {
-    color: #fbbf24; /* Yellow */
-  }
-  
-  /* Social Icons */
-  .social-icons {
-    display: flex;
-    gap: 1rem;
-    font-size: 1.5rem;
-  }
-  
-  .social-icons a {
-    color: #fff;
-    transition: color 0.3s ease;
-  }
-  
-  .social-icons a:hover {
-    color: #fbbf24; /* Yellow */
-  }
-  
-  /* Footer Bottom Section */
-  .footer-bottom {
+.footer-section h3 {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.footer-section p {
+  line-height: 1.6;
+}
+
+.footer-section ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footer-section ul li {
+  margin-bottom: 0.5rem;
+}
+
+.footer-section ul li a {
+  color: #fff;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.footer-section ul li a:hover {
+  color: #fbbf24; /* Yellow */
+}
+
+/* Social Icons */
+.social-icons {
+  display: flex;
+  gap: 1rem;
+  font-size: 1.5rem;
+}
+
+.social-icons a {
+  color: #fff;
+  transition: color 0.3s ease;
+}
+
+.social-icons a:hover {
+  color: #fbbf24; /* Yellow */
+}
+
+/* Footer Bottom Section */
+.footer-bottom {
+  text-align: center;
+  font-size: 0.875rem;
+  margin-top: 2rem;
+}
+
+/* Map Container */
+.map-container {
+  position: absolute;
+  bottom: 1rem;
+  right: 1rem;
+}
+
+.map-container img {
+  width: 310px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease-in-out;
+}
+
+.map-container img:hover {
+  transform: scale(1.05);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .footer-content {
+    grid-template-columns: 1fr; /* Stack all sections on top of each other */
+    gap: 1.5rem;
     text-align: center;
-    font-size: 0.875rem;
-    margin-top: 2rem;
   }
-  
-  /* Map Container */
+
   .map-container {
-    position: absolute;
-    bottom: 1rem;
-    right: 1rem;
+    position: static; /* Move the map to static position */
+    margin-top: 1rem;
+    text-align: center;
+    width: 100%; /* Make the map responsive */
   }
-  
+
   .map-container img {
-    width: 310px;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    transition: transform 0.3s ease-in-out;
+    width: 100%; /* Make map image take full width */
+    max-width: 400px; /* Limit map size to 400px */
   }
-  
-  .map-container img:hover {
-    transform: scale(1.05);
+
+  .footer-logo {
+    grid-column: 1 / -1; /* Center logo across all columns */
+    text-align: center;
   }
-  
-  /* Responsive Design */
-  @media (max-width: 768px) {
-    .footer-content {
-      grid-template-columns: 1fr;
-      gap: 1.5rem;
-      text-align: center;
-    }
-  
-    .map-container {
-      position: static;
-      margin-top: 1rem;
-      text-align: center;
-    }
-  
-    .map-container img {
-      width: 200px;
-    }
+
+  .footer-bottom {
+    font-size: 0.75rem; /* Adjust footer text size for mobile */
   }
-  
+}
+
+/* iPad & Tablet View (768px to 1024px) */
+@media (min-width: 768px) and (max-width: 1024px) {
+  .footer-content {
+    grid-template-columns: 1fr 1fr 1fr; /* Three columns on tablets */
+  }
+
+  .map-container img {
+    width: 70%; /* Adjust map image size on tablets */
+    max-width: 300px; /* Limit map size on tablets */
+  }
+}

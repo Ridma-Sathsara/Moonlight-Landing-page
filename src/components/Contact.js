@@ -17,8 +17,8 @@ const Container = styled.div`
     padding: 0px;
     margin-top: 60px;
   }
-    background: linear-gradient(38.73deg, rgba(118, 159, 254, 0.15) 0%, rgba(217, 255, 0, 0.04) 50%), 
-              linear-gradient(141.27deg, rgba(0, 64, 255, 0.06) 50%, rgba(246, 255, 0, 0.16) 100%);
+    // background: linear-gradient(38.73deg, rgba(118, 159, 254, 0.15) 0%, rgba(217, 255, 0, 0.04) 50%), 
+    //           linear-gradient(141.27deg, rgba(0, 64, 255, 0.06) 50%, rgba(246, 255, 0, 0.16) 100%);
 `;
 
 const Wrapper = styled.div`
@@ -178,9 +178,9 @@ const Contact = () => {
     <Container>
       <Wrapper>
         <Title>Contact</Title>
-        <Desc>Feel free to contact me for work inquiries or collaborations!</Desc>
+        <Desc >Feel free to contact us!</Desc>
         <ContactForm ref={form} onSubmit={handleSubmit} autoComplete="off">
-          <ContactTitle>Send me an email.</ContactTitle>
+          <ContactTitle className="text-center mb-12 text-4xl font-poppins text-gray-800">Send us an email.</ContactTitle>
           <ContactInput placeholder="Your Email" name="from_email" type="email" pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}" required/>
           <ContactInput placeholder="Your Name" name="from_name" required/>
           <ContactInput placeholder="Subject" name="subject" required/>
