@@ -47,7 +47,7 @@ const NavBar = () => {
           <div className="flex items-center space-x-4">
             <img src={moonlightLogo} alt="Moonlight Gems" className="h-10" />
             <span className="text-xl transition-all text-black font-poppins">
-              Moonlight
+            Moonlight Gems & Jewellery
             </span>
           </div>
 

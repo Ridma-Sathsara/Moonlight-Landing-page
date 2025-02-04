@@ -37,7 +37,7 @@ const Banner = () => {
           Discover Timeless Elegance
         </h1>
         <p className="text-sm sm:text-base md:text-lg lg:text-xl mb-6 max-w-xl mx-auto opacity-100 transition-opacity duration-1000">
-         Moonlight Gems & Jewellery.
+         Moonlight Gems & Jewellery
          
         </p>
 
